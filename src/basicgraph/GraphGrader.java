@@ -50,6 +50,7 @@ public class GraphGrader {
      * @param corr A list containing the correct answer
      */
     public void runTest(int i, String desc, int start, List<Integer> corr) {
+    	System.out.println(" ----------------- ");
         GraphAdjList lst = new GraphAdjList();
         GraphAdjMatrix mat = new GraphAdjMatrix();
         
@@ -59,11 +60,18 @@ public class GraphGrader {
         // Load the graph, get the user's answer, and compare with right answer
         GraphLoader.loadGraph("data/graders/mod1/graph" + i + ".txt", lst);
         List<Integer> result = lst.getDistance2(start);
+        
+       
+        
         judge(result, corr);
  
         feedback += appendFeedback(i * 2, "Testing adjacency matrix");
         GraphLoader.loadGraph("data/graders/mod1/graph" + i + ".txt", mat);
         result = mat.getDistance2(start);
+        
+        System.out.println("my result :"+result);
+        System.out.println("correct result :"+correct); 
+        
         judge(result, corr);
     }
 

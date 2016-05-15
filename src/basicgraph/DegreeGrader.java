@@ -67,6 +67,12 @@ public class DegreeGrader {
         // Load the graph, get the user's output, and compare with right answer
         GraphLoader.loadGraph(file, lst);
         List<Integer> result = lst.degreeSequence();
+        
+        System.out.println("result:"+result);
+        System.out.println("Correct :"+corr);
+        
+        System.out.println("----- "+lst);
+        
         judge(result, corr);
  
         feedback += appendFeedback(i * 2, "Testing adjacency matrix");

@@ -28,12 +28,14 @@ public class GraphAdjList extends Graph {
 		adjListsMap = new HashMap<Integer,ArrayList<Integer>>();
 	}
 
-	/** 
+	/**   
 	 * Implement the abstract method for adding a vertex. 
 	 */
-	public void implementAddVertex() {
+	public void implementAddVertex() 
+	{
 		int v = getNumVertices();
 		// System.out.println("Adding vertex "+v);
+	
 		ArrayList<Integer> neighbors = new ArrayList<Integer>();
 		adjListsMap.put(v,  neighbors);
 	}

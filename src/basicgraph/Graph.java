@@ -1,6 +1,7 @@
 package basicgraph;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +22,8 @@ import util.GraphLoader;
  * 
  */
 
-public abstract class Graph {
+public abstract class Graph 
+{
 
 	private int numVertices;
 	private int numEdges;
@@ -120,9 +122,28 @@ public abstract class Graph {
 	 * 
 	 * @return The degree sequence of this graph.
 	 */
-	public List<Integer> degreeSequence() {
+	public List<Integer> degreeSequence() 
+	{
 		// XXX: Implement in part 1 of week 1
-		return null;
+		
+		List<Integer> degreeseqlist = new ArrayList<Integer>();
+		
+		System.out.println("***************************");
+		
+		
+		for(int vertex = 0 ;vertex<=getNumVertices()-1;vertex++)
+		{
+			
+			
+			//System.out.println("No. of in neighbours for vertex "+String.valueOf(vertex)+"  :  "+getNeighbors(vertex).size());
+		    System.out.println(" for vertex "+ String.valueOf(vertex)+ " : "+String.valueOf(getNeighbors(vertex).size()));
+			
+			degreeseqlist.add((getInNeighbors(vertex).size()+getNeighbors(vertex).size()));
+		}
+		
+		Collections.sort(degreeseqlist,Collections.reverseOrder());
+		
+		return degreeseqlist;
 	}
 	
 	/**
@@ -241,6 +262,10 @@ public abstract class Graph {
 		System.out.println("Roads / intersections:");
 		GraphAdjList graphFromFile = new GraphAdjList();
 		GraphLoader.loadRoadMap("data/testdata/simpletest.map", graphFromFile);
+		
+		
+		graphFromFile.degreeSequence();
+		
 		System.out.println(graphFromFile);
 		
 		System.out.println("Observe all degrees are <= 12.");
