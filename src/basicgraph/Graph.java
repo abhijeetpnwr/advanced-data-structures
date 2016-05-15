@@ -128,15 +128,13 @@ public abstract class Graph
 		
 		List<Integer> degreeseqlist = new ArrayList<Integer>();
 		
-		System.out.println("***************************");
-		
 		
 		for(int vertex = 0 ;vertex<=getNumVertices()-1;vertex++)
 		{
 			
 			
 			//System.out.println("No. of in neighbours for vertex "+String.valueOf(vertex)+"  :  "+getNeighbors(vertex).size());
-		    System.out.println(" for vertex "+ String.valueOf(vertex)+ " : "+String.valueOf(getNeighbors(vertex).size()));
+		    //System.out.println(" for vertex "+ String.valueOf(vertex)+ " : "+String.valueOf(getNeighbors(vertex).size()));
 			
 			degreeseqlist.add((getInNeighbors(vertex).size()+getNeighbors(vertex).size()));
 		}
